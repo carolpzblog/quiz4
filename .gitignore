@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int factorial (int x){
+  if (x==0){
+    return 1;
+  }
+  else
+  {
+    return x*factorial(x-1);
+  }
+}
+float euler_calc(float precision){
+  float e=0.0, prev=0.0;
+  int n=0;
+  do{
+   prev=e;
+  e=e+(1.0/factorial (n));
+  n=n+1;
+  cout <<"For n of "<< n<< ", e is: "<< e<<endl;
+} while ((e-prev)>precision);
+  return e;
+}
+int main (){
+  float answer= euler_calc(0.01);
+  cout <<"La respuesta es: "<<answer<<endl;
+}
